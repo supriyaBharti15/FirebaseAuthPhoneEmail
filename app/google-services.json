@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "593940461905",
+    "firebase_url": "https://fir-authphoneemail.firebaseio.com",
+    "project_id": "fir-authphoneemail",
+    "storage_bucket": "fir-authphoneemail.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:593940461905:android:0822ab0a5cbe70c81d3b70",
+        "android_client_info": {
+          "package_name": "com.example.firebaseauthphoneemail"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "593940461905-visrlrc71f1ro9igeftgoetbgiug11n6.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.firebaseauthphoneemail",
+            "certificate_hash": "eb27baee80e925e004a01e912e7dfc4801bdc0fb"
+          }
+        },
+        {
+          "client_id": "593940461905-903s2fvkvmicariu2m57nqkvqn5lmeca.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDWNCdWM9gjqGqZnOUtBP890S7s40JrqhE"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "593940461905-903s2fvkvmicariu2m57nqkvqn5lmeca.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
