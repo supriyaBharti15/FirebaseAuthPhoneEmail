@@ -2,9 +2,11 @@ package com.example.firebaseauthphoneemail;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.text.TextUtils;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ProgressBar;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
@@ -25,7 +27,8 @@ import java.util.concurrent.TimeUnit;
 public class OtpVerification extends AppCompatActivity {
     private EditText otp;
     private Button verify;
-    private String number;
+    private String number, id;
+    private ProgressBar progress;
     FirebaseAuth mAuth;
 
     @Override
@@ -34,6 +37,8 @@ public class OtpVerification extends AppCompatActivity {
         setContentView(R.layout.verification_activity);
         otp = findViewById(R.id.otpEdit);
         verify = findViewById(R.id.verify);
+        progress = findViewById(R.id.progress);
+        progress.setVisibility(View.GONE);
 
         mAuth = FirebaseAuth.getInstance();
         number = getIntent().getStringExtra("number");
@@ -43,7 +48,15 @@ public class OtpVerification extends AppCompatActivity {
         verify.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
+                progress.setVisibility(View.VISIBLE);
+                if (TextUtils.isEmpty(otp.getText().toString())) {
+                    Toast.makeText(OtpVerification.this, "Enter Otp", Toast.LENGTH_SHORT).show();
+                } else if (otp.getText().toString().replace(" ", "").length() != 6) {
+                    Toast.makeText(OtpVerification.this, "Enter right otp", Toast.LENGTH_SHORT).show();
+                } else {
+                    PhoneAuthCredential credential = PhoneAuthProvider.getCredential(id, otp.getText().toString().replace(" ", ""));
+                    signInWithPhoneAuthCredential(credential);
+                }
             }
         });
     }
@@ -52,7 +65,8 @@ public class OtpVerification extends AppCompatActivity {
         PhoneAuthProvider.getInstance().verifyPhoneNumber(number, 60, TimeUnit.SECONDS, this, new PhoneAuthProvider.OnVerificationStateChangedCallbacks() {
             @Override
             public void onCodeSent(@NonNull String s, @NonNull PhoneAuthProvider.ForceResendingToken forceResendingToken) {
-                super.onCodeSent(s, forceResendingToken);
+                //super.onCodeSent(s, forceResendingToken);
+                OtpVerification.this.id = s;
             }
 
             @Override
@@ -72,7 +86,7 @@ public class OtpVerification extends AppCompatActivity {
             @Override
             public void onComplete(@NonNull Task<AuthResult> task) {
                 if (task.isSuccessful()) {
-                    startActivity(new Intent(OtpVerification.this,DashBoardActivity.class));
+                    startActivity(new Intent(OtpVerification.this, DashBoardActivity.class));
                     finish();
                     FirebaseUser user = task.getResult().getUser();
                 }

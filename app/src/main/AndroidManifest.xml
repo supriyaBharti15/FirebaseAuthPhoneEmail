@@ -22,6 +22,7 @@
         <activity android:name=".PhoneLoginActivity" />
         <activity android:name=".OtpVerification"/>
         <activity android:name=".EmailRegistration"/>
+        <activity android:name=".DashBoardActivity"/>
     </application>
 
 </manifest>

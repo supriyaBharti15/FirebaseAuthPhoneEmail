@@ -14,7 +14,7 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="30dp"
             android:gravity="center"
-            android:text="Login With Email"
+            android:text="Registration With Email"
             android:textSize="25sp" />
 
         <LinearLayout
@@ -89,6 +89,43 @@
             android:layout_height="2dp"
             android:background="@color/green" />
 
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:orientation="horizontal"
+            android:padding="12dp">
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginTop="2dp"
+                android:src="@drawable/pass" />
+
+            <EditText
+                android:id="@+id/nameEdit"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:layout_marginTop="2dp"
+                android:background="#00000000"
+                android:gravity="center_vertical"
+                android:hint="Name"
+                android:inputType="phone"
+                android:maxLength="10"
+                android:textColor="@color/black"
+                android:textColorHint="@color/black"
+                android:textCursorDrawable="@drawable/cursor_white" />
+
+        </LinearLayout>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="2dp"
+            android:background="@color/green" />
+
+
         <Button
             android:id="@+id/next"
             android:layout_width="wrap_content"
@@ -98,7 +135,7 @@
             android:background="@drawable/button_bg"
             android:paddingLeft="60dp"
             android:paddingRight="60dp"
-            android:text="Login"
+            android:text="Registered"
             android:textColor="@color/white" />
 
     </LinearLayout>
