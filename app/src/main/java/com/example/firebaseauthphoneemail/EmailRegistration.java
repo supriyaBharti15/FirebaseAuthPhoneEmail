@@ -46,7 +46,7 @@ public class EmailRegistration extends AppCompatActivity {
             public void onClick(View v) {
                 if (TextUtils.isEmpty(email.getText().toString())) {
                     Toast.makeText(getApplicationContext(), "Please Enter email", Toast.LENGTH_LONG).show();
-                } else if (Patterns.EMAIL_ADDRESS.matcher(email.getText().toString()).matches()) {
+                } else if (!Patterns.EMAIL_ADDRESS.matcher(email.getText().toString()).matches()) {
                     Toast.makeText(getApplicationContext(), "Please Enter valid email", Toast.LENGTH_LONG).show();
                 } else if (TextUtils.isEmpty(password.getText().toString())) {
                     Toast.makeText(getApplicationContext(), "Please Enter password", Toast.LENGTH_LONG).show();
@@ -86,7 +86,7 @@ public class EmailRegistration extends AppCompatActivity {
                 }).addOnFailureListener(new OnFailureListener() {
             @Override
             public void onFailure(@NonNull Exception e) {
-                Toast.makeText(getApplicationContext(),"Email registration Failed",Toast.LENGTH_LONG).show();
+                Toast.makeText(getApplicationContext(),"Failed"+e.getLocalizedMessage(),Toast.LENGTH_LONG).show();
             }
         });
     }
